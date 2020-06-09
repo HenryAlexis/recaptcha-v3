@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+      <!-- Scripts must be in the HEAD section -->
+      <script src="https://www.google.com/recaptcha/api.js?render=$REPLACEWITHSITEKEY"></script>
+    </head>
+    <body>
+    <!-- jQuery is needed -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // Add Google Token to Main Contact form
+        grecaptcha.ready(function() {
+            grecaptcha.execute('$REPLACEWITHSITEKEY', {action: 'homepage'}).then(function(token) {
+                // add token to contact form
+                $("<input type='hidden' name='g-recaptcha-response' value='" + token + "'/>").insertAfter($(".CONTACTFORM"));			
+            });
+        });
+    </script>
+    </body>
+</html>
